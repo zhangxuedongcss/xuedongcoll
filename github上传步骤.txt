@@ -1,0 +1,94 @@
+1 生成ssh key
+ 先检查有没有ssh   cd ~/.ssh  （如果有  删除）
+git config  --global user.name "xuliangmost"
+git config  --global user.email "xuliang.most@gmail.com"
+$ ssh-keygen -t rsa -C “xuliang.most@gmail.com”
+生成成功后，用记事本打开id_rsa.pub，得到ssh key公钥
+在github上添加ssh
+---------------------------------------------------------------------------------
+2cd进入到项目目录
+git init    
+git add .
+git commit -m "提交文件"
+git commit -a -m ""   //先将文件提交到缓存区再提交到版本库中
+git remote add origin git@github.com:gaolinli/xiaomixiangm.git
+（如果出错
+	1先输入$ git remote rm origin
+	2、再输入$ git remote add origin git@github.com:djqiang/gitdemo.git 就不会报错了！）
+ git pull origin
+git push -u origin master
+yes
+---------------------------------------------------------------------------------
+克隆
+git clone url --depth 1(克隆最近一次修改后 的)
+ git reset --hard HEAD^
+git push origin master --force 强制覆盖
+------------------------------------------------------------------------------------
+git log //查看提交记录及所有版本状态
+git status   //查看当前版本库状态
+git checkout "需要回退到上次提交的状态文件"   //回退单个文件代码
+----------------------------------------------------------------------------------------
+对比
+git diff   //对比前后版本的不同    工作区与暂存区的对比
+git diff --cached    (--staged)   //缓存区与版本库的对比    
+git diff master //工作区与版本库的对比
+--------------------------------------------------------------------------
+撤销
+git reset HEAD 文件名    //将文件从缓存区撤销到工作区
+git checkout -- 文件名    // 将工作区状态撤销到版本区状态
+git commit "全部提交的文件名" --amend      //提交不全时撤回重新提交
+-----------------------------------------------------------------------------
+退出   q
+--------------------------
+删除
+git rm 文件名     //删除暂存区文件
+git rm -f  文件名     //删除工作区和暂存区共有的文件
+git rm --cached 文件名  //删除暂存区文件而工作区文件不变
+--------------------------------------------------------------
+恢复
+git checkout id 文件名   //文件的还原   恢复到对应的ID版本      ID是git log得到的 commit后的ID
+git reset --hard id     //版本的还原 
+git reset --hard HEAD^   //返回上一个版本
+git reset --hard HEAD~n  //返回上n个版本
+git reflog   //返回返回前的状态 查看ID    git reset --hard id
+-----------------------------------------------------------------
+远程仓库
+git remote      //origin查看远程仓库的名字
+git remote -v  //查看远程仓库的地址
+git push origin master    //master远程仓库的一个分支
+
+
+git cinfig --global user.name ""   //用户名
+git cinfig --global user.email ""   //email
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
